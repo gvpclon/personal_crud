@@ -1,8 +1,9 @@
 <?php
-class Conexion{
+class Conectar{
     protected $dbh;
 
-    protected function Conectar(){
+    protected function Conexion()
+    {
         try{
             $conectar = $this->dbh= new PDO("mysql:local=localhost;dbname=crud","root","");
             return $conectar;
