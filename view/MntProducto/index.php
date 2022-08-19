@@ -20,6 +20,9 @@
     <!-- Custom styles for this template-->
     <link href="../../public/css/sb-admin-2.min.css" rel="stylesheet">
 
+    <!-- Custom styles for this page -->
+    <link href="../../public/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
 </head>
 
 <body id="page-top">
@@ -111,8 +114,7 @@
                         <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item active" href="blank.html">Blank Page</a>
+                        <a class="collapse-item" href="404.html">404 Page</a>                        
                     </div>
                 </div>
             </li>
@@ -330,11 +332,44 @@
                 </nav>
                 <!-- End of Topbar -->
 
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="productos_data" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Nombre</th>
+                                            <th>Editar</th>
+                                            <th>Eliminar</th>                                            
+                                        </tr>
+                                    </thead>
+                                  <!--  <tfoot>
+                                        <tr>
+                                        <th>Id</th>
+                                            <th>Nombre</th>
+                                            <th>Editar</th>
+                                            <th>Eliminar</th>                                            
+                                        </tr>
+                                    </tfoot>-->
+                                    <tbody>
+                                        <tr>
+                                            <td>0</td>
+                                            <td>System Architect</td>
+                                            <td><input  type="button" class="btn btn-primary"></td>
+                                            <td><input type="button" class="btn btn-danger"></td>
+                                        </tr>                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+           
 
                 </div>
                 <!-- /.container-fluid -->
@@ -346,7 +381,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Copyright &copy; German Vidaurre Paz 2022</span>
                     </div>
                 </div>
             </footer>
@@ -386,6 +421,7 @@
     <!-- Bootstrap core JavaScript-->
     <script src="../../public/jquery/jquery.min.js"></script>
     <script src="../../public/bootstrap/js/bootstrap.bundle.min.js"></script>
+    
 
     <!-- Core plugin JavaScript-->
     <script src="../../public/jquery-easing/jquery.easing.min.js"></script>
@@ -393,6 +429,17 @@
     <!-- Custom scripts for all pages-->
     <script src="../../public/js/sb-admin-2.min.js"></script>
 
+  
+    <!-- Page level plugins -->
+    <script src="../../public/datatables/jquery.dataTables.min.js"></script>
+    <script src="../../public/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="../../public/js/demo/datatables-demo.js"></script>
+
+
+    <!-- JS del producto-->
+    <script type="text/javascript" src="mntproducto.js"></script>
 </body>
 
 </html>

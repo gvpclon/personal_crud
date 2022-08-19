@@ -2,10 +2,20 @@
 class Conectar{
     protected $dbh;
 
-    protected function Conexion()
-    {
+    protected function ConectarMySql(){
         try{
             $conectar = $this->dbh= new PDO("mysql:local=localhost;dbname=crud","root","");
+            return $conectar;
+        }catch(Exception $e){
+            print "Error BD!!! ".$e->getMessage()."<br/>";
+            die();
+        }
+    }
+
+    protected function ConectarPostgreSql(){
+        try{
+            //modificar
+            $conectar = $this->dbh= new PDO("postgresql:local=localhost;dbname=crud","root","");
             return $conectar;
         }catch(Exception $e){
             print "Error BD!!! ".$e->getMessage()."<br/>";
