@@ -11,13 +11,14 @@ switch($_GET["op"]){
         $data = Array();
         foreach($datos as $row){
             $sub_array= array();
+            $sub_array[]= $row["prod_id"];
             $sub_array[]= $row["prod_nom"];
             $sub_array[]= '<button type="button" onClick="editar('.$row["prod_id"].');" id="'.$row["prod_id"].'" class="btn btn-outline-primary btn-icon"><div><i class="fa fa-edit"></i></div></button>';
             $sub_array[]='<button type="button" onClick="eliminar('.$row["prod_id"].');" id="'.$row["prod_id"].'" class="btn btn-outline-danger btn-icon"><div><i class="fa fa-trash"></i></div></button>';
-            $data=$sub_array;
+            $data[]=$sub_array;
         }
         $results = array(
-            "sEcho"=>1,
+            "sEcho"=>20,
             "iTotalRecords"=>count($data),
             "iTotalDisplayRecords"=>count($data),
             "aaData"=>$data);

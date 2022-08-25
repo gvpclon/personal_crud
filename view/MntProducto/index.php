@@ -337,9 +337,10 @@
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
                         </div>
+                        <div><button class="buttons.buttons-">excel</div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="productos_data" width="100%" cellspacing="0">
+                                <table class="table table-bordered" id="producto_data" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>Id</th>
@@ -348,21 +349,9 @@
                                             <th>Eliminar</th>                                            
                                         </tr>
                                     </thead>
-                                  <!--  <tfoot>
-                                        <tr>
-                                        <th>Id</th>
-                                            <th>Nombre</th>
-                                            <th>Editar</th>
-                                            <th>Eliminar</th>                                            
-                                        </tr>
-                                    </tfoot>-->
+                                    
                                     <tbody>
-                                        <tr>
-                                            <td>0</td>
-                                            <td>System Architect</td>
-                                            <td><input  type="button" class="btn btn-primary"></td>
-                                            <td><input type="button" class="btn btn-danger"></td>
-                                        </tr>                                        
+                                  
                                     </tbody>
                                 </table>
                             </div>
@@ -436,7 +425,7 @@
 
     <!-- Page level custom scripts -->
     <script src="../../public/js/demo/datatables-demo.js"></script>
-
+        
 
     <!-- JS del producto-->
     <script type="text/javascript" src="mntproducto.js"></script>
