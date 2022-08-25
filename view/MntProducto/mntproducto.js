@@ -25,7 +25,7 @@ $(document).ready(function(){
         "bDetroy":true,
         "responsive":true,
         "bInfo":true,
-        "iDisplayLength": 2, //CAntidad de registros por pagina
+        "iDisplayLength": 10, //Cantidad de registros por pagina
         "order":[[0,"asc"]], //ordenar (columna, orden)
         "language":{
             "sProcessing": "Procesando...",
@@ -53,6 +53,15 @@ $(document).ready(function(){
         }
     }).dataTable();
 });
+
+function editar(prod_id){
+console.log(prod_id);
+}
+
+function eliminar(prod_id){
+    console.log(prod_id);
+}
+ 
 
 
 init();
