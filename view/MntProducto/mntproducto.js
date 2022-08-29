@@ -59,9 +59,28 @@ console.log(prod_id);
 }
 
 function eliminar(prod_id){
-    console.log(prod_id);
+    swal.fire({
+        title: "Eliminar",
+        text: "Está seguro de eliminar el registro?",
+        icon: "warning",
+        showCancelButton: true,        
+        confirmButtonText: "Si",
+        cancelButtonText: "No",
+        reverseButtons: true
+    }).then((result)=> {
+        if(result.isConfirmed){
+            swal.fire(
+                'Deleted!',
+                'You',
+                'sucess'
+            )
+        }
+    });    
 }
  
-
+$(document).on("click","#btnnuevo", function(){
+    $('#mdltitulo').html('Nuevo Registro');
+    $('#modalmantenimiento').modal('show');
+});
 
 init();

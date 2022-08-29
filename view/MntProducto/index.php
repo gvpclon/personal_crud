@@ -332,11 +332,14 @@
                 </nav>
                 <!-- End of Topbar -->
 
+                
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
+                    
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-                        </div>                        
+                        </div>
+                        <button class="btn btn-outline-primary btn-block mg-b-10" id="btnnuevo">Nuevo Registro</button>                        
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="producto_data" width="100%" cellspacing="0">
@@ -406,6 +409,8 @@
         </div>
     </div>
 
+    <?php require_once("modalmantenimiento.php");?>
+
     <!-- Bootstrap core JavaScript-->
     <script src="../../public/jquery/jquery.min.js"></script>
     <script src="../../public/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -425,7 +430,8 @@
     <!-- Page level custom scripts -->
     <script src="../../public/js/demo/datatables-demo.js"></script>
         
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
     <!-- JS del producto-->
     <script type="text/javascript" src="mntproducto.js"></script>
 </body>
