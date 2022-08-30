@@ -1,7 +1,9 @@
 var tabla;
 
 function init(){
-
+    $('#producto_form').on("submit",function(e){
+        guardaryeditar(e);
+    })
 }
 $(document).ready(function(){
     tabla=$('#producto_data').dataTable({
@@ -54,28 +56,61 @@ $(document).ready(function(){
     }).dataTable();
 });
 
+function guardaryeditar(e){
+    console.log("::::::::")
+    e.preventDefault();
+    var formData= new FormData($("#producto_form")[0]);
+    $.ajax({
+        url: "../../controller/producto.php?op=guardaryeditar",
+        type: "POST",
+        data: formData,
+        contentType: false, 
+        processData: false,
+        success: function (datos) {
+           console.log(datos);
+            $('#producto_form')[0].reset();
+            $('#modalmantenimiento').modal('hide');
+            $('#producto_data').DataTable().ajax.reload(); 
+            swal({
+                title: 'Guardar editar',
+                text: 'Completado',
+                type:success,
+                confirmButtonText: "btn-success"
+            });
+
+        }
+
+    });
+}
+
 function editar(prod_id){
 console.log(prod_id);
 }
 
-function eliminar(prod_id){
-    swal.fire({
+function eliminar(prod_id){    
+    Swal.fire({
         title: "Eliminar",
         text: "Está seguro de eliminar el registro?",
-        icon: "warning",
+        icon: "error",
         showCancelButton: true,        
         confirmButtonText: "Si",
         cancelButtonText: "No",
         reverseButtons: true
-    }).then((result)=> {
+    }).then((result) => {
         if(result.isConfirmed){
-            swal.fire(
-                'Deleted!',
-                'You',
+            //console.log(prod_id);
+            $.post("../../controller/producto.php?op=eliminar",{prod_id:prod_id},function(data){
+            });
+
+            $('#producto_data').DataTable().ajax.reload();
+
+            Swal.fire(  
+                'Eliminado!',
+                'El registro se eliminó correctamente',
                 'sucess'
             )
         }
-    });    
+    })    
 }
  
 $(document).on("click","#btnnuevo", function(){

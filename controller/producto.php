@@ -7,6 +7,7 @@ $producto= new Producto();
 switch($_GET["op"]){
 
     case "listar":
+        
         $datos=$producto->get_producto();
         $data = Array();
         foreach($datos as $row){
@@ -45,7 +46,7 @@ switch($_GET["op"]){
             }
         }        
         break;
-    case "eliminar":
+    case "eliminar":        
         $producto->delete_producto($_POST["prod_id"]);        
         break;
         
