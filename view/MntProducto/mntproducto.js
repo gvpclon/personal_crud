@@ -3,7 +3,7 @@ var tabla;
 function init(){
     $('#producto_form').on("submit",function(e){
         guardaryeditar(e);
-    })
+    });
 }
 $(document).ready(function(){
     tabla=$('#producto_data').dataTable({
@@ -57,7 +57,7 @@ $(document).ready(function(){
 });
 
 function guardaryeditar(e){
-    console.log("::::::::")
+    console.log("ingresa guardar");
     e.preventDefault();
     var formData= new FormData($("#producto_form")[0]);
     $.ajax({
@@ -84,7 +84,18 @@ function guardaryeditar(e){
 }
 
 function editar(prod_id){
-console.log(prod_id);
+    $('#mdltitulo').html('Editar Registro');
+    console.log("da");
+    $.post("../../controller/producto.php?op=mostrar",{prod_id:prod_id},function(data){
+        
+        data=JSON.parse(data);
+        $('#prod_id').val(data.prod_id);
+        $('#prod_nom').val(data.prod_nom);
+        $('#prod_desc').val(data.prod_desc);
+        console.log(data);
+    });
+    console.log("da1");
+    $('#modalmantenimiento').modal('show');
 }
 
 function eliminar(prod_id){    
@@ -114,8 +125,10 @@ function eliminar(prod_id){
 }
  
 $(document).on("click","#btnnuevo", function(){
-    $('#mdltitulo').html('Nuevo Registro');
-    $('#modalmantenimiento').modal('show');
+    $('#mdltitulo').html('Nuevo Registro');    
+    $('#producto_form')[0].reset();
+    $('#prod_id').val('');
+    $('#modalmantenimiento').modal('show');     
 });
 
 init();

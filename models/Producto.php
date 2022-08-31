@@ -14,7 +14,7 @@
         public function get_producto_x_id($prod_id){
             $conectar= parent::ConectarMySql();        
             parent::set_names();
-            $sql="SELECT * FROM tm_producto WHERE prod_id = ? WHERE est=1";
+            $sql="SELECT * FROM tm_producto WHERE prod_id = ? and est=1";
             $sql=$conectar->prepare($sql);
             $sql->bindValue(1,$prod_id);
             $sql->execute();
@@ -31,23 +31,25 @@
             return $resultado=$sql->fetchAll();
         }
 
-        public function insertar_producto($prod_nom){
+        public function insertar_producto($prod_nom, $prod_desc){
             $conectar= parent::ConectarMySql();        
             parent::set_names();
-            $sql="INSERT INTO tm_producto (prod_id, prod_nom, fech_crea, fech_modi, fech_elim, est) VALUES (NULL, ?, now(), NULL, NULL, 1);";
+            $sql="INSERT INTO tm_producto (prod_id, prod_nom, prod_desc, fech_crea, fech_modi, fech_elim, est) VALUES (NULL, ?,?, now(), NULL, NULL, 1);";
             $sql=$conectar->prepare($sql);
             $sql->bindValue(1,$prod_nom);
+            $sql->bindValue(2,$prod_desc);
             $sql->execute();
             return $resultado=$sql->fetchAll();            
         }
 
-        public function update_producto($prod_nom,$prod_id){
+        public function update_producto($prod_nom,$prod_desc,$prod_id){
             $conectar= parent::ConectarMySql();        
             parent::set_names();
-            $sql="UPDATE FROM tm_producto SET prod_nom=?, fech_modi=now() WHERE prod_id = ?";
+            $sql="UPDATE FROM tm_producto SET prod_nom=?, prod_desc=?, fech_modi=now() WHERE prod_id = ?";
             $sql=$conectar->prepare($sql);
             $sql->bindValue(1,$prod_nom);
-            $sql->bindValue(2,$prod_id);
+            $sql->bindValue(2,$prod_desc);
+            $sql->bindValue(3,$prod_id);
             $sql->execute();
             return $resultado=$sql->fetchAll();
     }
